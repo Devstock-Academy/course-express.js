@@ -1,26 +1,21 @@
 import express from 'express'
 import path from 'path'
+import fs from 'fs'
 import { fileURLToPath } from 'url'
+import productsRouter from './routes/products.js'
 
 const app = express()
-const PORT = 8000
-const productsList = [
-  { id: 1, name: 'Product A', price: 15 },
-  { id: 2, name: 'Product B', price: 25 },
-  { id: 3, name: 'Product C', price: 35 },
-]
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+const PORT = process.env.PORT || 5000
 
-app.use(express.static(path.join(__dirname, 'public')))
+// const __filename = fileURLToPath(import.meta.url)
+// const __dirname = path.dirname(__filename)
 
-app.get('/json', (req, res) => {
-  res.send({ message: 'Hello, JSON response!' })
-})
+// app.use(express.static(path.join(__dirname, 'public')))
 
-app.get('/products', (req, res) => {
-  res.json(productsList)
-})
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
+
+app.use('/api/products', productsRouter)
 
 // Serwer nasłuchuje na porcie 8000
 app.listen(PORT, () => {
