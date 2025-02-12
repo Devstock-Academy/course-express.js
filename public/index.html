@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8" />
-    <title>Moja strona Express</title>
+    <title>Products</title>
   </head>
   <body>
-    <h1>Welcome to the Express Page!</h1>
+    <h1>Products</h1>
+    <button id="get-products-btn">Get products</button>
+    <div id="output"></div>
+
+    <form id="product-form">
+      <input type="text" name="name" placeholder="Product name" />
+      <input type="number" name="price" placeholder="Price" />
+      <input type="number" name="quantity" placeholder="Quantity" />
+      <button type="submit">Add Product</button>
+    </form>
+
+    <script src="./js/main.js"></script>
   </body>
 </html>

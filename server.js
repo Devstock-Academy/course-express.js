@@ -1,6 +1,6 @@
 import express from 'express'
 import path from 'path'
-import fs from 'fs'
+
 import { fileURLToPath } from 'url'
 import productsRouter from './routes/products.js'
 import logger from './middleware/logger.js'
@@ -10,10 +10,10 @@ import notFound from './middleware/notFound.js'
 const app = express()
 const PORT = process.env.PORT || 5000
 
-// const __filename = fileURLToPath(import.meta.url)
-// const __dirname = path.dirname(__filename)
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
-// app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public')))
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
