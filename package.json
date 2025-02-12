@@ -1,0 +1,16 @@
+{
+  "name": "course-express",
+  "version": "1.0.0",
+  "description": "express js course",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
